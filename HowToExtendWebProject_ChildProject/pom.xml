@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.rafaborrego</groupId>
+	<artifactId>childProject</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<name>ChildProject webapp</name>
+
+	<properties>
+		<jdk.version>1.6</jdk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+	    <!-- Dependencies with the base project -->
+		
+		<!-- Import the web files (JSP, Javascript, ...)  -->
+		<dependency>
+			<groupId>com.rafaborrego</groupId>
+			<artifactId>baseProject</artifactId>
+			<version>1.0.0</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- Import the compiled Java code  -->
+		<dependency>
+			<groupId>com.rafaborrego</groupId>
+			<artifactId>baseProject</artifactId>
+			<version>1.0.0</version>
+			<classifier>classes</classifier>
+		</dependency>
+	</dependencies>
+
+	<!-- Specify the JDK version and the codification -->
+	<build>
+		<finalName>childProject</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
